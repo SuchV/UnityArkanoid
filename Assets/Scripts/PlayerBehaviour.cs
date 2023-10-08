@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 7f;
+    [SerializeField] private float _moveSpeed = 7f;
 
     void Update()
     {
@@ -22,8 +22,6 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         Vector3 moveDir = new Vector3(inputVector.x,0f,0f);
-        transform.position += moveDir * moveSpeed * Time.deltaTime;
-
-        Debug.Log(inputVector);
+        transform.position += moveDir * _moveSpeed * Time.deltaTime;
     }
 }
