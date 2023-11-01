@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     private int _points = 0;
+
+    public Action OnPointsChangedEvent;
+
     
     public int Points
     {
@@ -14,16 +18,6 @@ public class GameManager : Singleton<GameManager>
     public void AddPoints()
     {
         _points++;
-    }
-
-    
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
+        OnPointsChangedEvent?.Invoke();
     }
 }

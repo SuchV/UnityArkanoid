@@ -9,7 +9,6 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private float _moveSpeed = 7f;
     public Vector3 _mapDimension = new Vector3(0, 0, 0);
     public Vector3 _paddleDimension = new Vector3(0, 0, 0);
-    //public float _mapSize;
     public float _paddleSize;
 
     private void Awake()
@@ -23,9 +22,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Vector2 inputVector = new Vector2(0,0);
 
-
-
-        // Something is really fucked up here, no idea how to fix it, gonna sleep now
         if (Mathf.Abs(GameObject.Find("Paddle").transform.position.x) < _mapDimension.x / 2.0f)
         {
             if (Input.GetKey(KeyCode.A))
@@ -37,9 +33,9 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 inputVector.x = 1;
             }
+
             Vector3 moveDir = new Vector3(inputVector.x, 0f, 0f);
             transform.position += moveDir * _moveSpeed * Time.deltaTime;
-
         }
         else
         {
